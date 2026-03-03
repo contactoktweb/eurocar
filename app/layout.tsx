@@ -40,13 +40,26 @@ const yantramanav = localFont({
   variable: "--font-yantramanav",
 });
 
-export const metadata: Metadata = {
-  title: "A&M Germany Motors | Repuestos y Taller Especializado",
-  description:
-    "Importamos y comercializamos repuestos de BMW, Audi, Mercedes Benz, Volkswagen y Mini Cooper. Servicio de taller automotriz especializado en Bogota, Colombia.",
-  keywords:
-    "repuestos BMW, repuestos Audi, repuestos Mercedes Benz, taller especializado, Volkswagen, Mini Cooper, Bogota Colombia",
-};
+export const revalidate = 0;
+
+import { client } from "@/sanity/lib/client";
+import { globalConfigQuery } from "@/sanity/lib/queries";
+
+export async function generateMetadata(): Promise<Metadata> {
+  const globalConfig = await client.fetch(globalConfigQuery, {}, { cache: 'no-store' });
+  const logoUrl = globalConfig?.logoUrl || "/images/image.png";
+  
+  return {
+    title: globalConfig?.siteTitle || "A&M euro cars | Repuestos y Taller Especializado",
+    description: globalConfig?.siteDescription || "Importamos y comercializamos repuestos de BMW, Audi, Mercedes Benz, Volkswagen y Mini Cooper. Servicio de taller automotriz especializado en Bogota, Colombia.",
+    keywords: "repuestos BMW, repuestos Audi, repuestos Mercedes Benz, taller especializado, Volkswagen, Mini Cooper, Bogota Colombia",
+    icons: {
+      icon: logoUrl,
+      shortcut: logoUrl,
+      apple: logoUrl,
+    },
+  };
+}
 
 export const viewport: Viewport = {
   themeColor: "#1a1a1a",

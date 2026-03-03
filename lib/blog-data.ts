@@ -16,7 +16,7 @@ export const posts: BlogPost[] = [
       "Conoce los cuidados esenciales que tu BMW necesita para un rendimiento superior y una vida util prolongada.",
     date: "15 Enero 2026",
     image: "/images/hero-bg.jpg",
-    author: "A&M Germany Motors",
+    author: "A&M euro cars",
     content: `Tu BMW es una maquina de precision alemana que merece un cuidado excepcional. Para mantenerlo en optimas condiciones, es fundamental seguir un programa de mantenimiento regular.
 
 **Cambio de aceite y filtros**
@@ -39,7 +39,7 @@ La suspension deportiva de BMW requiere atencion especial. Los bujes, amortiguad
 
 Los vehiculos BMW modernos cuentan con sistemas electronicos sofisticados. Es importante realizar diagnosticos periodicos con equipos especializados para detectar codigos de error antes de que se conviertan en problemas mayores. La bateria debe revisarse cada ano y reemplazarse cada 4-5 anos.
 
-En A&M Germany Motors contamos con la experiencia y los equipos necesarios para mantener tu BMW en perfecto estado. No dudes en contactarnos para agendar tu proxima revision.`,
+En A&M euro cars contamos con la experiencia y los equipos necesarios para mantener tu BMW en perfecto estado. No dudes en contactarnos para agendar tu proxima revision.`,
   },
   {
     slug: "diagnostico-preventivo-vehiculos-alemanes",
@@ -48,7 +48,7 @@ En A&M Germany Motors contamos con la experiencia y los equipos necesarios para 
       "Descubre por que un diagnostico regular puede ahorrarte costos elevados de reparacion y mantener tu auto seguro.",
     date: "8 Enero 2026",
     image: "/images/services-hero.jpg",
-    author: "A&M Germany Motors",
+    author: "A&M euro cars",
     content: `El diagnostico preventivo es una de las herramientas mas poderosas para mantener tu vehiculo aleman en perfecto estado y evitar reparaciones costosas.
 
 **Que es el diagnostico preventivo?**
@@ -73,7 +73,7 @@ Los vehiculos de marcas como BMW, Audi, Mercedes Benz y Volkswagen cuentan con s
 
 Recomendamos un diagnostico completo cada 6 meses o cada 10,000 km, lo que ocurra primero. Sin embargo, si notas cualquier comportamiento inusual en tu vehiculo, no esperes al siguiente mantenimiento programado.
 
-En A&M Germany Motors utilizamos equipos de diagnostico de ultima generacion compatibles con todas las marcas alemanas. Agenda tu cita hoy.`,
+En A&M euro cars utilizamos equipos de diagnostico de ultima generacion compatibles con todas las marcas alemanas. Agenda tu cita hoy.`,
   },
   {
     slug: "repuestos-originales-vs-genericos",
@@ -82,7 +82,7 @@ En A&M Germany Motors utilizamos equipos de diagnostico de ultima generacion com
       "Analizamos las diferencias clave entre repuestos originales y genericos, y por que elegir calidad importa.",
     date: "2 Enero 2026",
     image: "/images/parts-hero.jpg",
-    author: "A&M Germany Motors",
+    author: "A&M euro cars",
     content: `Al momento de reparar tu vehiculo aleman, una de las decisiones mas importantes es elegir entre repuestos originales y genericos. Aqui te explicamos las diferencias para que tomes la mejor decision.
 
 **Repuestos originales (OEM)**
@@ -111,7 +111,7 @@ Para componentes criticos como frenos, suspension, direccion y motor, siempre re
 
 Para piezas de menor impacto como filtros, limpiadores y algunos componentes de carroceria, los repuestos de marcas aftermarket reconocidas pueden ser una alternativa viable si tienen certificaciones de calidad.
 
-**En A&M Germany Motors**
+**En A&M euro cars**
 
 Comercializamos repuestos originales, nuevos, usados y garantizados para BMW, Audi, Mercedes Benz, Volkswagen y Mini Cooper. Cada pieza pasa por un proceso de verificacion para garantizar que cumple con los estandares de calidad que tu vehiculo merece.`,
   },
@@ -122,7 +122,7 @@ Comercializamos repuestos originales, nuevos, usados y garantizados para BMW, Au
       "Todo lo que necesitas saber sobre la alineacion correcta de las ruedas y como impacta en la seguridad de tu vehiculo.",
     date: "20 Diciembre 2025",
     image: "/images/special-offer.jpg",
-    author: "A&M Germany Motors",
+    author: "A&M euro cars",
     content: `La alineacion y el balanceo de las ruedas son dos servicios esenciales que impactan directamente en la seguridad, comodidad y economia de tu vehiculo.
 
 **Que es la alineacion de ruedas?**
@@ -153,7 +153,7 @@ Es el proceso de distribuir uniformemente el peso alrededor de la rueda. Pequena
 
 **Importancia en vehiculos alemanes**
 
-Los vehiculos alemanes tienen sistemas de suspension de alta precision. Una alineacion incorrecta no solo desgasta los neumaticos prematuramente, sino que puede danar componentes costosos de la suspension. Es fundamental realizar estos servicios con equipos de alta precision como los que utilizamos en A&M Germany Motors.`,
+Los vehiculos alemanes tienen sistemas de suspension de alta precision. Una alineacion incorrecta no solo desgasta los neumaticos prematuramente, sino que puede danar componentes costosos de la suspension. Es fundamental realizar estos servicios con equipos de alta precision como los que utilizamos en A&M euro cars.`,
   },
   {
     slug: "cuidados-aire-acondicionado-automotriz",
@@ -162,7 +162,7 @@ Los vehiculos alemanes tienen sistemas de suspension de alta precision. Una alin
       "Tips practicos para mantener el aire acondicionado de tu auto en perfecto estado durante todo el ano.",
     date: "12 Diciembre 2025",
     image: "/images/about-hero.jpg",
-    author: "A&M Germany Motors",
+    author: "A&M euro cars",
     content: `El sistema de aire acondicionado de tu vehiculo requiere mantenimiento regular para funcionar de manera eficiente y mantener una buena calidad del aire interior.
 
 **Como funciona el sistema de A/C**
@@ -192,7 +192,7 @@ El sistema de aire acondicionado utiliza un refrigerante que circula por un circ
 - Ruidos inusuales al activar el A/C
 - Agua excesiva debajo del vehiculo
 
-Si notas alguna de estas senales, contacta a A&M Germany Motors para un diagnostico profesional.`,
+Si notas alguna de estas senales, contacta a A&M euro cars para un diagnostico profesional.`,
   },
   {
     slug: "senales-revision-frenos",
@@ -201,7 +201,7 @@ Si notas alguna de estas senales, contacta a A&M Germany Motors para un diagnost
       "Aprende a identificar las senales de desgaste en el sistema de frenos antes de que se convierta en un problema mayor.",
     date: "5 Diciembre 2025",
     image: "/images/contact-hero.jpg",
-    author: "A&M Germany Motors",
+    author: "A&M euro cars",
     content: `El sistema de frenos es el componente de seguridad mas critico de tu vehiculo. Conocer las senales de desgaste puede salvarte la vida y ahorrarte dinero en reparaciones mayores.
 
 **Senales de alerta principales**
@@ -228,7 +228,7 @@ Si notas alguna de estas senales, contacta a A&M Germany Motors para un diagnost
 
 Los vehiculos BMW, Audi, Mercedes Benz y Volkswagen tienen sistemas de frenos de alto rendimiento disenados para velocidades elevadas. El uso de repuestos de calidad inferior puede comprometer significativamente el rendimiento de frenado.
 
-En A&M Germany Motors utilizamos repuestos de calidad para el sistema de frenos de tu vehiculo aleman. Agenda tu revision hoy.`,
+En A&M euro cars utilizamos repuestos de calidad para el sistema de frenos de tu vehiculo aleman. Agenda tu revision hoy.`,
   },
 ];
 

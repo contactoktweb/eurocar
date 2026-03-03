@@ -1,7 +1,23 @@
 import Link from "next/link";
 import { Phone, Mail, MapPin, Clock } from "lucide-react";
+import { client } from "@/sanity/lib/client";
+import { globalConfigQuery } from "@/sanity/lib/queries";
 
-export default function Footer() {
+export default async function Footer() {
+  const globalConfig = await client.fetch(globalConfigQuery, {}, { cache: 'no-store' });
+
+  const phoneUnformatted = globalConfig?.phone || "311 854 3597";
+  const phoneFormatted = globalConfig?.phone ? phoneUnformatted : "311 854 3597";
+  const email = globalConfig?.email || "mardilaespejo@gmail.com";
+  const address = globalConfig?.address || "Carrera 24 # 67 - 44, L-136, Bogota";
+  const footerDescription = globalConfig?.footerDescription || "Importamos y comercializamos repuestos de BMW, Audi, Mercedes Benz, Volkswagen y Mini Cooper. Servicio de taller automotriz especializado.";
+  const schedule = globalConfig?.schedule || [
+    "Lunes a Viernes: 8:00 AM - 6:00 PM",
+    "Sabados: 8:00 AM - 1:00 PM"
+  ];
+  
+  const currentYear = new Date().getFullYear();
+
   return (
     <footer className="border-t border-border bg-card">
       <div className="mx-auto max-w-7xl px-4 py-16 lg:px-8">
@@ -9,12 +25,10 @@ export default function Footer() {
           {/* Brand */}
           <div>
             <h3 className="text-xl font-bold text-foreground">
-              A&M <span className="text-primary">Germany Motors</span>
+              A&M <span className="text-primary">euro cars</span>
             </h3>
             <p className="mt-4 text-sm leading-relaxed text-muted-foreground ">
-              Importamos y comercializamos repuestos de BMW, Audi, Mercedes
-              Benz, Volkswagen y Mini Cooper. Servicio de taller automotriz
-              especializado.
+              {footerDescription}
             </p>
           </div>
 
@@ -49,22 +63,22 @@ export default function Footer() {
             </h4>
             <div className="flex flex-col gap-4">
               <a
-                href="tel:+573118543597"
+                href={`tel:${phoneUnformatted.replace(/[^0-9+]/g, "")}`}
                 className="flex items-start gap-3 text-sm text-muted-foreground transition-colors hover:text-foreground "
               >
                 <Phone className="mt-0.5 h-4 w-4 shrink-0 text-primary" />
-                311 854 3597
+                {phoneFormatted}
               </a>
               <a
-                href="mailto:mardilaespejo@gmail.com"
+                href={`mailto:${email}`}
                 className="flex items-start gap-3 text-sm text-muted-foreground transition-colors hover:text-foreground"
               >
                 <Mail className="mt-0.5 h-4 w-4 shrink-0 text-primary" />
-                mardilaespejo@gmail.com
+                {email}
               </a>
               <div className="flex items-start gap-3 text-sm text-muted-foreground">
                 <MapPin className="mt-0.5 h-4 w-4 shrink-0 text-primary" />
-                Carrera 24 # 67 - 44, L-136, Bogota
+                {address}
               </div>
             </div>
           </div>
@@ -75,24 +89,25 @@ export default function Footer() {
               Horario
             </h4>
             <div className="flex flex-col gap-3">
-              <div className="flex items-start gap-3 text-sm text-muted-foreground ">
-                <Clock className="mt-0.5 h-4 w-4 shrink-0 text-primary" />
-                <div>
-                  <p>Lunes a Viernes</p>
-                  <p className="text-foreground font-semibold">
-                    8:00 AM - 6:00 PM
-                  </p>
-                </div>
-              </div>
-              <div className="flex items-start gap-3 text-sm text-muted-foreground ">
-                <Clock className="mt-0.5 h-4 w-4 shrink-0 text-primary" />
-                <div>
-                  <p>Sabados</p>
-                  <p className="text-foreground font-semibold">
-                    8:00 AM - 1:00 PM
-                  </p>
-                </div>
-              </div>
+              {schedule.map((line: string, idx: number) => {
+                const parts = line.split(':');
+                const title = parts[0];
+                const time = parts.slice(1).join(':').trim();
+                
+                return (
+                  <div key={idx} className="flex items-start gap-3 text-sm text-muted-foreground ">
+                    <Clock className="mt-0.5 h-4 w-4 shrink-0 text-primary" />
+                    <div>
+                      <p>{title}</p>
+                      {time && (
+                        <p className="font-semibold text-foreground">
+                          {time}
+                        </p>
+                      )}
+                    </div>
+                  </div>
+                );
+              })}
             </div>
           </div>
         </div>
@@ -100,7 +115,13 @@ export default function Footer() {
         {/* Bottom bar */}
         <div className="mt-12 border-t border-border pt-8 text-center">
           <p className="text-xs text-muted-foreground ">
-            &copy; 2026 A&M Germany Motors. Todos los derechos reservados.
+            &copy; {currentYear} A&M euro cars. Todos los derechos reservados.
+            <br />
+            <a href="https://www.kytcode.lat" target="_blank" rel="noreferrer" className="inline-flex items-center gap-1 hover:text-primary transition-colors hover:underline mt-2">
+              Desarrollado por K&T 
+              <span className="block dark:hidden">🖤</span>
+              <span className="hidden dark:block">🤍</span>
+            </a>
           </p>
         </div>
       </div>

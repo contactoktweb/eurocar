@@ -6,6 +6,8 @@ import FeaturesSection from "@/components/home/features-section";
 import OffersSection from "@/components/home/offers-section";
 import CtaSection from "@/components/home/cta-section";
 
+export const revalidate = 0;
+
 export default function Page() {
   return (
     <>
