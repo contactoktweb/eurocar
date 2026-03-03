@@ -23,7 +23,7 @@ export default async function RepuestosPage() {
     client.fetch(sparePartsQuery, {}, { cache: 'no-store' }),
   ]);
 
-  const whatsappNumber = globalConfig?.phone?.replace(/\s+/g, "") || "573118543597";
+  const whatsappNumber = globalConfig?.whatsapp || globalConfig?.phone?.replace(/\s+/g, "") || "573118543597";
 
   function getWhatsAppLink(repuestoName: string) {
     const message = encodeURIComponent(

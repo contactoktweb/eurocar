@@ -3,7 +3,7 @@ import Image from "next/image";
 import Header from "@/components/header";
 import Footer from "@/components/footer";
 import ContactForm from "@/components/contact-form";
-import { Phone, Mail, MapPin, Clock } from "lucide-react";
+import { Phone, Mail, MapPin, Clock, MessageCircle } from "lucide-react";
 import { client } from "@/sanity/lib/client";
 import { contactPageQuery, globalConfigQuery } from "@/sanity/lib/queries";
 
@@ -35,6 +35,7 @@ export default async function ContactoPage() {
   const mapTitle = contactPageData?.mapTitle || "Visítanos";
 
   const phone = globalConfig?.phone || "311 854 3597";
+  const whatsappNumber = globalConfig?.whatsapp || phone.replace(/[^0-9+]/g, "");
   const email = globalConfig?.email || "mardilaespejo@gmail.com";
   const address = globalConfig?.address || "Carrera 24 # 67 - 44, L-136, Bogota";
   const schedule = globalConfig?.schedule || ["Lunes a Viernes: 8:00 AM - 6:00 PM"];
@@ -55,6 +56,12 @@ export default async function ContactoPage() {
       title: "Telefono",
       content: phone,
       href: `tel:${phone.replace(/[^0-9+]/g, "")}`,
+    },
+    {
+      icon: MessageCircle,
+      title: "WhatsApp",
+      content: whatsappNumber,
+      href: `https://wa.me/${whatsappNumber}?text=${encodeURIComponent("Hola, quisiera mas informacion.")}`,
     },
     {
       icon: Mail,

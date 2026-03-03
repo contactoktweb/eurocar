@@ -1,13 +1,14 @@
 import Link from "next/link";
-import { Phone, Mail, MapPin, Clock } from "lucide-react";
+import { Phone, Mail, MapPin, Clock, MessageCircle } from "lucide-react";
 import { client } from "@/sanity/lib/client";
 import { globalConfigQuery } from "@/sanity/lib/queries";
 
 export default async function Footer() {
   const globalConfig = await client.fetch(globalConfigQuery, {}, { cache: 'no-store' });
 
-  const phoneUnformatted = globalConfig?.phone || "311 854 3597";
-  const phoneFormatted = globalConfig?.phone ? phoneUnformatted : "311 854 3597";
+  const phoneFormatted = globalConfig?.phone || "311 854 3597";
+  const phoneLink = phoneFormatted.replace(/[^0-9+]/g, "");
+  const whatsappNumber = globalConfig?.whatsapp || phoneLink;
   const email = globalConfig?.email || "mardilaespejo@gmail.com";
   const address = globalConfig?.address || "Carrera 24 # 67 - 44, L-136, Bogota";
   const footerDescription = globalConfig?.footerDescription || "Importamos y comercializamos repuestos de BMW, Audi, Mercedes Benz, Volkswagen y Mini Cooper. Servicio de taller automotriz especializado.";
@@ -63,11 +64,20 @@ export default async function Footer() {
             </h4>
             <div className="flex flex-col gap-4">
               <a
-                href={`tel:${phoneUnformatted.replace(/[^0-9+]/g, "")}`}
+                href={`tel:${phoneLink}`}
                 className="flex items-start gap-3 text-sm text-muted-foreground transition-colors hover:text-foreground "
               >
                 <Phone className="mt-0.5 h-4 w-4 shrink-0 text-primary" />
                 {phoneFormatted}
+              </a>
+              <a
+                href={`https://wa.me/${whatsappNumber}?text=${encodeURIComponent("Hola, necesito más información.")}`}
+                target="_blank"
+                rel="noreferrer"
+                className="flex items-start gap-3 text-sm text-muted-foreground transition-colors hover:text-foreground "
+              >
+                <MessageCircle className="mt-0.5 h-4 w-4 shrink-0 text-primary" />
+                {whatsappNumber}
               </a>
               <a
                 href={`mailto:${email}`}

@@ -19,9 +19,9 @@ export default function HeaderClient({ globalConfig }: { globalConfig: any }) {
   const pathname = usePathname();
 
   const logoSrc = globalConfig?.logoUrl || "/images/image.png";
-  const phoneUnformatted = globalConfig?.phone || "311 854 3597";
-  const phoneFormatted = globalConfig?.phone ? phoneUnformatted : "311 854 3597";
-  const phoneLink = phoneUnformatted.replace(/[^0-9+]/g, "");
+  const phoneFormatted = globalConfig?.phone || "311 854 3597";
+  const phoneLink = phoneFormatted.replace(/[^0-9+]/g, "");
+  const whatsappNumber = globalConfig?.whatsapp || phoneLink;
 
   return (
     <header className="fixed top-0 left-0 right-0 z-50 bg-background/90 backdrop-blur-md border-b border-border">
