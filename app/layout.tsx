@@ -3,6 +3,7 @@ import type { Metadata, Viewport } from "next";
 import localFont from "next/font/local";
 
 import "./globals.css";
+import Script from "next/script";
 
 const yantramanav = localFont({
   src: [
@@ -44,6 +45,7 @@ export const revalidate = 0;
 
 import { client } from "@/sanity/lib/client";
 import { globalConfigQuery } from "@/sanity/lib/queries";
+import WhatsappButton from "@/components/whatsapp-button";
 
 export async function generateMetadata(): Promise<Metadata> {
   const globalConfig = await client.fetch(globalConfigQuery, {}, { cache: 'no-store' });
@@ -67,15 +69,35 @@ export const viewport: Viewport = {
   initialScale: 1,
 };
 
-export default function RootLayout({
+export default async function RootLayout({
   children,
 }: Readonly<{
   children: React.ReactNode;
 }>) {
+  const globalConfig = await client.fetch(globalConfigQuery, {}, { cache: 'no-store' });
+  const whatsapp = globalConfig?.whatsapp || "3027424210";
+
   return (
     <html lang="es">
-      <body className={`${yantramanav.variable} font-sans antialiased`}>
+      <head>
+        <Script
+          async
+          src="https://www.googletagmanager.com/gtag/js?id=AW-16828583888"
+          strategy="afterInteractive"
+        />
+        <Script id="google-tag" strategy="afterInteractive">
+          {`
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+
+            gtag('config', 'AW-16828583888');
+          `}
+        </Script>
+      </head>
+      <body className={`${yantramanav.variable} font-sans antialiased text-foreground`}>
         {children}
+        <WhatsappButton phoneNumber={whatsapp} />
       </body>
     </html>
   );

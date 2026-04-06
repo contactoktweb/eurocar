@@ -1,5 +1,6 @@
 import Link from "next/link";
-import { Phone, Mail, MapPin, Clock, MessageCircle } from "lucide-react";
+import { WhatsAppIcon } from "@/components/ui/whatsapp-icon";
+import { Phone, Mail, MapPin, Clock } from "lucide-react";
 import { client } from "@/sanity/lib/client";
 import { globalConfigQuery } from "@/sanity/lib/queries";
 
@@ -10,7 +11,7 @@ export default async function Footer() {
   const phoneLink = phoneFormatted.replace(/[^0-9+]/g, "");
   const whatsappNumber = globalConfig?.whatsapp || phoneLink;
   const email = globalConfig?.email || "mardilaespejo@gmail.com";
-  const address = globalConfig?.address || "Carrera 24 # 67 - 44, L-136, Bogota";
+  const address = "Cl. 74a # 27-33";
   const footerDescription = globalConfig?.footerDescription || "Importamos y comercializamos repuestos de BMW, Audi, Mercedes Benz, Volkswagen y Mini Cooper. Servicio de taller automotriz especializado.";
   const schedule = globalConfig?.schedule || [
     "Lunes a Viernes: 8:00 AM - 6:00 PM",
@@ -76,7 +77,7 @@ export default async function Footer() {
                 rel="noreferrer"
                 className="flex items-start gap-3 text-sm text-muted-foreground transition-colors hover:text-foreground "
               >
-                <MessageCircle className="mt-0.5 h-4 w-4 shrink-0 text-primary" />
+                <WhatsAppIcon className="mt-0.5 h-4 w-4 shrink-0 text-primary" />
                 {whatsappNumber}
               </a>
               <a

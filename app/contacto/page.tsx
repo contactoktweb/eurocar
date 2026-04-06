@@ -3,7 +3,8 @@ import Image from "next/image";
 import Header from "@/components/header";
 import Footer from "@/components/footer";
 import ContactForm from "@/components/contact-form";
-import { Phone, Mail, MapPin, Clock, MessageCircle } from "lucide-react";
+import { WhatsAppIcon } from "@/components/ui/whatsapp-icon";
+import { Phone, Mail, MapPin, Clock } from "lucide-react";
 import { client } from "@/sanity/lib/client";
 import { contactPageQuery, globalConfigQuery } from "@/sanity/lib/queries";
 
@@ -37,11 +38,11 @@ export default async function ContactoPage() {
   const phone = globalConfig?.phone || "311 854 3597";
   const whatsappNumber = globalConfig?.whatsapp || phone.replace(/[^0-9+]/g, "");
   const email = globalConfig?.email || "mardilaespejo@gmail.com";
-  const address = globalConfig?.address || "Carrera 24 # 67 - 44, L-136, Bogota";
+  const address = "Cl. 74a # 27-33";
   const schedule = globalConfig?.schedule || ["Lunes a Viernes: 8:00 AM - 6:00 PM"];
   
-  // Maps Iframe handling: try to extract src if they pasted full tag
-  let mapSrc = globalConfig?.mapIframe || "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3976.7!2d-74.07!3d4.65!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8e3f9a3b3b3b3b3b%3A0x3b3b3b3b3b3b3b3b!2sCarrera%2024%20%23%2067-44%2C%20Bogot%C3%A1!5e0!3m2!1ses!2sco!4v1700000000000!5m2!1ses!2sco";
+  // Force new location map
+  let mapSrc = "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3976.5950081264455!2d-74.06994252434909!3d4.6660696419554295!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8e3f9a57da5de0e7%3A0xb14c0524556701cf!2zQ2wuIDc0YSAjIDI3LTMzLCBCYXJyaW9zIFVuaWRvcywgQm9nb3TDoSwgRC5DLiwgQm9nb3TDoSwgQm9nb3TDoSwgRC5DLg!5e0!3m2!1ses-419!2sco!4v1775508860418!5m2!1ses-419!2sco";
   
   if (mapSrc.includes('<iframe')) {
     const srcMatch = mapSrc.match(/src="([^"]+)"/);
@@ -58,7 +59,7 @@ export default async function ContactoPage() {
       href: `tel:${phone.replace(/[^0-9+]/g, "")}`,
     },
     {
-      icon: MessageCircle,
+      icon: WhatsAppIcon,
       title: "WhatsApp",
       content: whatsappNumber,
       href: `https://wa.me/${whatsappNumber}?text=${encodeURIComponent("Hola, quisiera mas informacion.")}`,
@@ -114,17 +115,17 @@ export default async function ContactoPage() {
         {/* Contact Info Cards */}
         <section className="bg-card py-16">
           <div className="mx-auto max-w-7xl px-4 lg:px-8">
-            <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
+            <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-5 gap-4 xl:gap-6">
               {contactInfo.map((item) => {
                 const Inner = (
-                  <div className="flex flex-col items-center gap-3 rounded-lg border border-border bg-background p-6 text-center transition-colors hover:border-primary/50 h-full">
+                  <div className="flex flex-col items-center gap-3 rounded-lg border border-border bg-background p-5 text-center transition-colors hover:border-primary/50 h-full">
                     <div className="flex h-12 w-12 items-center justify-center rounded bg-primary/10">
                       <item.icon className="h-6 w-6 text-primary" />
                     </div>
-                    <h3 className="text-sm font-bold uppercase tracking-wider text-foreground">
+                    <h3 className="text-xs font-bold uppercase tracking-wider text-foreground">
                       {item.title}
                     </h3>
-                    <p className="text-sm text-muted-foreground">
+                    <p className="text-xs text-muted-foreground whitespace-normal">
                       {item.content}
                     </p>
                   </div>
@@ -132,12 +133,16 @@ export default async function ContactoPage() {
 
                 if (item.href) {
                   return (
-                    <a key={item.title} href={item.href}>
+                    <a key={item.title} href={item.href} className="h-full">
                       {Inner}
                     </a>
                   );
                 }
-                return <div key={item.title}>{Inner}</div>;
+                return (
+                  <div key={item.title} className="h-full">
+                    {Inner}
+                  </div>
+                );
               })}
             </div>
           </div>

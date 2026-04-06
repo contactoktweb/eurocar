@@ -44,13 +44,13 @@ export default defineType({
       name: 'whatsapp',
       title: 'WhatsApp',
       type: 'string',
-      description: 'Número de WhatsApp sin símbolos ni espacios (e.g. 573000000000).',
+      description: 'Número de WhatsApp sin símbolos ni espacios. Ejemplo: 3027424210.',
     }),
     defineField({
       name: 'address',
       title: 'Dirección Física',
       type: 'text',
-      description: 'Dirección de la tienda o sede principal.',
+      description: 'Dirección de la tienda o sede principal. Ejemplo: Cl. 74a # 27-33.',
     }),
     defineField({
       name: 'socialNetworks',

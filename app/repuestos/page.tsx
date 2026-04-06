@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import Image from "next/image";
 import Header from "@/components/header";
 import Footer from "@/components/footer";
-import { MessageCircle } from "lucide-react";
+import { WhatsAppIcon } from "@/components/ui/whatsapp-icon";
 import { client } from "@/sanity/lib/client";
 import { globalConfigQuery, sparePartsPageQuery, sparePartsQuery } from "@/sanity/lib/queries";
 
@@ -136,7 +136,7 @@ export default async function RepuestosPage() {
               rel="noopener noreferrer"
               className="mt-8 inline-flex items-center gap-3 rounded bg-[#25D366] px-8 py-4 text-sm font-bold uppercase tracking-widest text-[#fff] transition-colors hover:bg-[#1da851]"
             >
-              <MessageCircle className="h-5 w-5" />
+              <WhatsAppIcon className="h-5 w-5" />
               Escríbenos por WhatsApp
             </a>
           </div>

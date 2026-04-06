@@ -31,9 +31,10 @@ export default function HeaderClient({ globalConfig }: { globalConfig: any }) {
           <Image
             src={logoSrc}
             alt="A&M euro cars Logo"
-            width={50}
-            height={50}
-            className="rounded"
+            width={240}
+            height={80}
+            className="h-16 sm:h-20 w-auto object-contain"
+            priority
           />
         </Link>
 
