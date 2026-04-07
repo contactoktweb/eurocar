@@ -15,11 +15,23 @@ const WhatsappButton = ({ phoneNumber }: WhatsappButtonProps) => {
   const encodedMessage = encodeURIComponent(defaultMessage);
   const whatsappUrl = `https://wa.me/${cleanPhone}?text=${encodedMessage}`;
 
+  const handleClick = () => {
+    // Reportar conversión a Google Ads
+    if (typeof window !== "undefined" && typeof (window as any).gtag === "function") {
+      (window as any).gtag('event', 'conversion', {
+          'send_to': 'AW-16828583888/gCiSCLuKspccENCfv9g-',
+          'value': 1.0,
+          'currency': 'COP'
+      });
+    }
+  };
+
   return (
     <a
       href={whatsappUrl}
       target="_blank"
       rel="noopener noreferrer"
+      onClick={handleClick}
       className="fixed bottom-6 right-6 z-[60] flex items-center justify-center rounded-full bg-[#25D366] p-4 text-white shadow-lg transition-all hover:scale-110 hover:bg-[#20ba59] focus:outline-none focus:ring-2 focus:ring-[#25D366] focus:ring-offset-2 animate-bounce hover:animate-none"
       aria-label="Contactar por WhatsApp"
     >
